@@ -1,0 +1,222 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE KDevPrjSession>
+<KDevPrjSession>
+ <DocsAndViews NumberOfDocuments="34" >
+  <Doc0 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/controlobject.cpp" >
+   <View0 Encoding="" line="90" Type="Source" />
+  </Doc0>
+  <Doc1 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/equation.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc1>
+  <Doc2 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/equation.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc2>
+  <Doc3 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/mainform.cpp" >
+   <View0 Encoding="" line="59" Type="Source" />
+  </Doc3>
+  <Doc4 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/integrator.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc4>
+  <Doc5 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/integrator.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc5>
+  <Doc6 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/graphtype.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc6>
+  <Doc7 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/tglgraph.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc7>
+  <Doc8 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/graph.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc8>
+  <Doc9 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/graph.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc9>
+  <Doc10 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/analysis.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc10>
+  <Doc11 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/Makefile" >
+   <View0 Encoding="" line="37" Type="Source" />
+  </Doc11>
+  <Doc12 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/dataform.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc12>
+  <Doc13 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/controlobject.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc13>
+  <Doc14 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/dataform.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc14>
+  <Doc15 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/editseriesform.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc15>
+  <Doc16 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/editseriesform.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc16>
+  <Doc17 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/main.cpp" >
+   <View0 Encoding="" line="29" Type="Source" />
+  </Doc17>
+  <Doc18 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/about.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc18>
+  <Doc19 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/about.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc19>
+  <Doc20 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/mainform.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc20>
+  <Doc21 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/analysis.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc21>
+  <Doc22 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/poinisi.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc22>
+  <Doc23 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/poinisi.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc23>
+  <Doc24 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/anasetdialog.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc24>
+  <Doc25 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/anasetdialog.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc25>
+  <Doc26 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/graphtype.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc26>
+  <Doc27 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/dataspinner.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc27>
+  <Doc28 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/dataspinner.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc28>
+  <Doc29 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/tglgraph.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc29>
+  <Doc30 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/stats.cpp" >
+   <View0 Encoding="" Type="Source" />
+  </Doc30>
+  <Doc31 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/stats.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc31>
+  <Doc32 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/formulc.h" >
+   <View0 Encoding="" Type="Source" />
+  </Doc32>
+  <Doc33 NumberOfViews="1" URL="file:///home/tjeerd/Projects/EuNeurone/formulc.cpp" >
+   <View0 Encoding="" line="1782" Type="Source" />
+  </Doc33>
+ </DocsAndViews>
+ <pluginList>
+  <kdevdebugger>
+   <breakpointList/>
+   <showInternalCommands value="0" />
+  </kdevdebugger>
+  <kdevastyle>
+   <Extensions ext="*.cpp *.h,*.c *.h,*.cxx *.hxx,*.c++ *.h++,*.cc *.hh,*.C *.H,*.diff,*.inl,*.java,*.moc,*.patch,*.tlh,*.xpm" />
+   <AStyle IndentPreprocessors="0" FillCount="4" PadParenthesesOut="1" IndentNamespaces="1" IndentLabels="1" Fill="Tabs" MaxStatement="40" Brackets="Break" MinConditional="-1" IndentBrackets="0" PadParenthesesUn="1" BlockBreak="0" KeepStatements="1" KeepBlocks="1" BlockIfElse="0" IndentSwitches="1" PadOperators="0" FStyle="UserDefined" IndentCases="0" FillEmptyLines="0" BracketsCloseHeaders="0" BlockBreakAll="0" PadParenthesesIn="1" IndentClasses="1" IndentBlocks="0" FillForce="0" />
+  </kdevastyle>
+  <kdevbookmarks>
+   <bookmarks>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/controlobject.h" >
+     <mark line="340" />
+     <mark line="178" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/formulc.cpp" >
+     <mark line="1740" />
+     <mark line="484" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/graph.cpp" >
+     <mark line="447" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/stats.cpp" >
+     <mark line="247" />
+     <mark line="94" />
+     <mark line="116" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/WinEuNeurone/spectrum.cpp" >
+     <mark line="125" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/controlobject.cpp" >
+     <mark line="1615" />
+     <mark line="1803" />
+     <mark line="3571" />
+     <mark line="2552" />
+     <mark line="1924" />
+     <mark line="2706" />
+     <mark line="905" />
+     <mark line="1483" />
+     <mark line="431" />
+     <mark line="3322" />
+     <mark line="2676" />
+     <mark line="3274" />
+     <mark line="3070" />
+     <mark line="2102" />
+     <mark line="1119" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/integrator.cpp" >
+     <mark line="952" />
+     <mark line="205" />
+     <mark line="1023" />
+     <mark line="786" />
+     <mark line="448" />
+     <mark line="551" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/equation.cpp" >
+     <mark line="414" />
+     <mark line="521" />
+     <mark line="609" />
+     <mark line="695" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/Misc/Cdp/dacalc.cpp" >
+     <mark line="785" />
+     <mark line="1534" />
+     <mark line="1399" />
+     <mark line="1724" />
+     <mark line="1062" />
+     <mark line="1257" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone.qwt4.1/tglgraph.cpp" >
+     <mark line="1571" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/mainform.cpp" >
+     <mark line="748" />
+     <mark line="993" />
+     <mark line="725" />
+     <mark line="692" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/anasetdialog.h" >
+     <mark line="13" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/poinisi.cpp" >
+     <mark line="563" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/tglgraph.cpp" >
+     <mark line="1383" />
+     <mark line="1606" />
+     <mark line="178" />
+     <mark line="1301" />
+     <mark line="112" />
+     <mark line="1543" />
+     <mark line="48" />
+     <mark line="201" />
+    </bookmark>
+    <bookmark url="/home/tjeerd/Projects/EuNeurone/analysis.cpp" >
+     <mark line="461" />
+     <mark line="1686" />
+     <mark line="906" />
+     <mark line="1418" />
+     <mark line="1369" />
+     <mark line="434" />
+     <mark line="1558" />
+     <mark line="1015" />
+     <mark line="829" />
+    </bookmark>
+   </bookmarks>
+  </kdevbookmarks>
+  <kdevvalgrind>
+   <executable path="" params="" />
+   <valgrind path="/usr/local/bin/valgrind" params=" --tool=memcheck --leak-check=yes" />
+   <calltree path="calltree" params="" />
+   <kcachegrind path="/usr/bin/kcachegrind" />
+  </kdevvalgrind>
+ </pluginList>
+</KDevPrjSession>

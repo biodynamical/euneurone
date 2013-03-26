@@ -1,0 +1,234 @@
+ /* Euneurone client sample code */
+ 
+  #include <sys/types.h>
+  #include <sys/socket.h>
+  #include <netinet/in.h>
+  #include <arpa/inet.h>
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+  #include <unistd.h>
+  #include <math.h>
+ 
+ char *inBuff;
+ char name[12]="Cosinewave";
+ char *achOK="OK";
+ char *ipAddress = NULL;
+ int nId,nNum;
+ int nSize;
+ int numSocket;
+ int SocketFD;
+ double time;
+ 
+int setupSocket()
+{
+    struct sockaddr_in stSockAddr;
+    int Res; 
+
+    SocketFD = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+ 
+    if (-1 == SocketFD)
+    {
+      perror("cannot create socket");
+      return 0;
+    }
+   memset(&stSockAddr, 0, sizeof(stSockAddr));
+ 
+    stSockAddr.sin_family = AF_INET;
+    stSockAddr.sin_port = htons(numSocket);
+    Res = inet_pton(AF_INET, ipAddress, &stSockAddr.sin_addr);
+ 
+    if (0 > Res)
+    {
+      perror("error: first parameter is not a valid address family");
+      close(SocketFD);
+      return 0;
+    }
+    else if (0 == Res)
+    {
+      perror("char string (second parameter does not contain valid ipaddress)");
+      close(SocketFD);
+      return 0;
+    }
+ 
+    if (-1 == connect(SocketFD, (struct sockaddr *)&stSockAddr, sizeof(stSockAddr)))
+    {
+      perror("connect failed");
+      close(SocketFD);
+      return 0;
+    }
+  return 1;
+}
+
+void streamData()
+{ 
+    double x,y;
+    float step;
+    int i,j,len,n;
+    int bStop=0;
+    x=0.0;
+    y=0.0;
+
+    /* perform read write operations ... */
+    while(!bStop)
+    {
+     memset(inBuff, 0, nSize);
+     len=read(SocketFD,inBuff,nSize);
+     if (len>0)
+     {
+      for (j=0;j<len;j++)
+      {
+       switch(inBuff[j])
+       {
+        default:
+	{
+	  printf("UNRECOGNISED STRING: %s\n",inBuff);
+	  len=0;
+	  break;
+	}
+	case 'E':
+	{
+	  //print program name and version
+	  printf("%s\n",inBuff);
+	  len=0;
+	  break;
+	}
+        case '[':
+        {
+	 //printf("Got id string: %s\n",inBuff);
+	 sscanf(inBuff,"[%d,%d,%d]",&nId,&nNum,&n);
+ 	 printf("Found id %d\nNumber of streams: %d\nBuffer size: %d\n",nId,nNum,n);
+	 if (n!=nSize)
+	 {
+	   if (inBuff!=NULL)
+	     free(inBuff);
+	   inBuff=malloc(n+1);
+	   memset(inBuff, 0, n+1);
+	   nSize=n;
+	 }
+         write(SocketFD,achOK,strlen(achOK));	
+	 fsync(SocketFD);
+	 len=0;
+ 	 break;
+        }
+        case 'H': 
+        {
+ 	 printf("Got hello, sending name\n");
+         write(SocketFD,name,sizeof(name));
+	 fsync(SocketFD);
+	 break;
+        }
+        case 'P':
+        {
+	 printf("Got stop, exiting...\n");
+	 bStop=1;
+	 break;
+       }
+       case 'T':
+	{
+     // printf("{%s}\n",inBuff);
+	 n=sscanf(inBuff,"T%f",&step);
+// 	 printf("Found step size %f (%d){%s}\n",step,n,inBuff);
+	 if (isnan(step)||(step==0.0))
+	   step=0.01;
+	 printf("Found step size %f\n",step);
+  	 len=0;
+	 break;
+	}
+       case 'S':
+       {
+	      time=0.0;
+	      x=0.0;
+	      y=cos(x);
+	      for (i=0;i<nNum;i++)
+	      {
+	       write(SocketFD,&nId,sizeof(nId));
+	       write(SocketFD,&i,sizeof(i));
+	       write(SocketFD,&time,sizeof(time));
+	       write(SocketFD,&y,sizeof(y));
+	      }
+	      printf("Started writing data\n",y);
+	      fsync(SocketFD);
+	      break;
+       }
+       case 'N':
+       {
+	      x=x+0.1;
+	      time=time+step;
+	      for (i=0;i<nNum;i++)
+	      {
+	       write(SocketFD,&nId,sizeof(nId));
+	       write(SocketFD,&i,sizeof(i));
+	       y=cos(x+(i*0.5*M_PI));
+	       write(SocketFD,&time,sizeof(time));
+	       write(SocketFD,&y,sizeof(y));
+	      //printf("Write [%d]: %f, %f\n",i,x,y);
+	      }
+	      fsync(SocketFD);
+	      break;
+	 }
+       }
+      }
+     }
+    }
+ }
+
+int main(int argc, char**argv)
+  {
+    int c;
+    
+    opterr = 0;
+    numSocket=0;
+    nSize=1024;
+    inBuff=malloc(nSize+1);
+    memset(inBuff, 0, sizeof(inBuff));
+    time=0.0;
+    
+    while ((c = getopt (argc, argv, "i:s:")) != -1)
+       {
+         switch (c)
+           {
+           case 's':
+             numSocket = atoi(optarg);
+             break;
+           case 'i':
+             ipAddress = optarg;
+             break;
+           case '?':
+             if ((optopt == 'i')||(optopt == 's'))
+               fprintf (stderr, "Option -%c requires an argument.\n", optopt);
+             else if (isprint (optopt))
+               fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+             else
+               fprintf (stderr,"Unknown option character `\\x%x'.\n",optopt);
+             return 1;
+           default:
+             abort ();
+           }
+       }
+       
+    printf ("Euneurone Socket Client\nName: %s\nIP address: %s\nSocket %d\n",name,ipAddress,numSocket);
+    
+    if (ipAddress==NULL)
+    {
+      printf("Please provide IP address: e.g. -i 127.0.0.1\n");
+      exit(-1);
+    }
+    if (numSocket==0)
+    {
+      printf("Please provide socket: e.g. -s 1234\n");
+      exit(-1);
+    }
+    //setup socket
+    if (!setupSocket())
+    {
+      exit(EXIT_FAILURE);
+    }
+    //output data:
+    streamData();
+    
+    shutdown(SocketFD, SHUT_RDWR);
+ 
+    close(SocketFD);
+    return EXIT_SUCCESS;
+}    

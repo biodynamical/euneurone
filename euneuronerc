@@ -1,0 +1,47 @@
+[Analysis]
+Interspike estimate/!Description=Determine interspike distances.
+Interspike estimate/$Threshold=Threshold value, spike is located at maxima above this value.
+Interspike estimate/$Use=Use threshold (1=true, 0=false, default=1)
+Interspike estimate/Threshold=0
+Interspike estimate/Type=8
+Interspike estimate/Use=1
+Maximal Lyapunov Exponent/!Description=This function estimates the largest Lyapunov exponent of a given scalar data set using the algorithm of Rosenstein.
+Maximal Lyapunov Exponent/$Delay=Length of the delay
+Maximal Lyapunov Exponent/$Embedding dimension=Number of embedding dimensions
+Maximal Lyapunov Exponent/$MinLength = minimal length scale for the neighborhood search  [(data interval)/1000]
+Maximal Lyapunov Exponent/$Steps = number of iterations in time [50]
+Maximal Lyapunov Exponent/$Window = window around the reference point which should be omitted [0]
+Maximal Lyapunov Exponent/Delay=1
+Maximal Lyapunov Exponent/Embedding dimension=1
+Maximal Lyapunov Exponent/MinLength=1
+Maximal Lyapunov Exponent/Steps=50
+Maximal Lyapunov Exponent/Type=2
+Maximal Lyapunov Exponent/Window=0
+Poincare section/!Description=This function cuts the data series a specific value.
+Poincare section/$Cut=Cut value
+Poincare section/$Direction=Direction of cut (0=Both, 1=Up, 2=Down)
+Poincare section/Cut=0
+Poincare section/Direction=0
+Poincare section/Type=5
+Powerspectrum/!Description=Calculate powerspectrum (square of Fourier transform).
+Powerspectrum/$Window=Window type (0=None, 1=Hamming, 2=Hann, 3=Bartlett, 4=Blackman, default=0).
+Powerspectrum/Type=4
+Powerspectrum/Window=0
+Recurrence plot/!Description=This function produces a recurrence plot of the data set. That means, for each point in the data set it looks for all points, such that the distance between these two points is smaller than a given size in a given embedding space.
+Recurrence plot/$Delay=Length of the delay
+Recurrence plot/$Embedding dimension=Number of embedding dimensions
+Recurrence plot/$Size neighbourhood=Size of the neighbourhood [(data interval)/1000]
+Recurrence plot/Delay=1
+Recurrence plot/Embedding dimension=1
+Recurrence plot/Size neighbourhood=0
+Recurrence plot/Type=1
+Spike estimate/!Description=Locate spikes in time series using maxima and optional threshold.
+Spike estimate/$Threshold=Threshold value, spike is located at maxima above this value.
+Spike estimate/$Use=Use threshold (1=true, 0=false, default=1)
+Spike estimate/Threshold=0
+Spike estimate/Type=7
+Spike estimate/Use=1
+
+[General]
+Recent Files=/home/tjeerd/Documents/Research/experiments/biochaos/peng.4.eq^e/home/tjeerd/Documents/Research/experiments/general/lorenzsat.10.eq^e/home/tjeerd/Documents/Research/experiments/biochaos/peng.5.eq^e/home/tjeerd/Documents/Research/experiments/general/rabfab.6.eq^e/home/tjeerd/Documents/Research/experiments/hrexps/hr4synComp.8.eq^e/home/tjeerd/Documents/Research/experiments/hrexps/hr4synComp.7.eq^e/home/tjeerd/Documents/Research/experiments/hrexps/hr4synComp.6.eq^e/home/tjeerd/Documents/Research/experiments/stp/stphr5synaps.1.eq^e/home/tjeerd/Documents/Research/experiments/stp/stphr5synaps.1bessel.eq^e/home/tjeerd/Documents/Research/experiments/stp/stphr5synaps.4.eq^e
+

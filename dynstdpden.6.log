@@ -1,0 +1,33 @@
+[========================================]
+[Wed May 2 2012 11:58:48] Opened file
+	{ dynstdpden.6.log }
+[Wed May 2 2012 11:58:48] Changed begin
+	{ begin=0 }
+[Wed May 2 2012 11:58:48] Changed end
+	{ end=59999 }
+[Wed May 2 2012 11:58:48] Changed step
+	{ step=0.05 }
+[Wed May 2 2012 12:00:16] Closed file and log.
+[========================================]
+[========================================]
+[Wed May 2 2012 12:15:33] Opened file
+	{ dynstdpden.6.log }
+[Wed May 2 2012 12:15:33] Changed begin
+	{ begin=0 }
+[Wed May 2 2012 12:15:33] Changed end
+	{ end=59999 }
+[Wed May 2 2012 12:15:33] Changed step
+	{ step=0.05 }
+[Wed May 2 2012 12:15:39] Closed file and log.
+[========================================]
+[========================================]
+[Wed May 2 2012 12:33:46] Opened file
+	{ dynstdpden.6.log }
+[Wed May 2 2012 12:33:46] Changed begin
+	{ begin=0 }
+[Wed May 2 2012 12:33:46] Changed end
+	{ end=59999 }
+[Wed May 2 2012 12:33:46] Changed step
+	{ step=0.05 }
+[Wed May 2 2012 12:34:21] Closed file and log.
+[========================================]
