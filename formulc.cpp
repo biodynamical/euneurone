@@ -87,6 +87,7 @@ double If(double d);
 double Ifelse(double d1, double d2, double d3);
 double Step(double d1, double d2, double d3);
 double Stair(double d1, double d2, double d3, double d4);
+double Trigger(double d1, double d2, double d3);
 double Sign(double d);
 double Besselj(double d1, double d2);
 double Besseli(double d1, double d2);
@@ -120,7 +121,7 @@ static Variable AGlobVar;
 // Changed ToS 2008: GCC 4.x doesn't like const char * for static string data: changed to string array char name[10]
 typedef struct {
   char name[10];
-  Func f;    /* pointer to function*/
+  Func f;   /* pointer to function*/
   int n_pars; /* number of parameters */
   int varying; /* Does the result of the function vary
 		  even when the parameters stay the same?
@@ -130,10 +131,10 @@ typedef struct {
 #define IDINVALID 0xFFFFFFFF
 
 #define TABLESIZE 51
-#define STD_LIB_NUM 46
-#define DELAY_IDX 43
-#define IDELAY_IDX 44
-#define SOCKET_IDX 45
+#define STD_LIB_NUM 47
+#define DELAY_IDX 44
+#define IDELAY_IDX 45
+#define SOCKET_IDX 46
 formu_item ftable[TABLESIZE]=
 {
   {{"sin"}, sin,1,0},
@@ -142,7 +143,7 @@ formu_item ftable[TABLESIZE]=
   {{"asin"}, asin,1,0},
   {{"acos"}, acos,1,0},
   {{"atan"}, atan,1,0},
-  {{"atan2"},(Func) atan2,2,0},
+  {{"atan2"},reinterpret_cast<Func>((Func2)atan2),2,0},
   {{"sinh"}, sinh, 1, 0},
   {{"cosh"}, cosh, 1, 0},
   {{"tanh"}, tanh, 1, 0},
@@ -152,9 +153,9 @@ formu_item ftable[TABLESIZE]=
   {{"log2"}, log2,1,0},
   {{"abs"},  fabs,1,0},
   {{"sqrt"},  sqrt,1,0},
-  {{"pow"},  (Func)pow,2,0},  
-  {{"mod"}, (Func)fmod,2,0},
-  {{"hypot"}, (Func)hypot, 2, 0},
+  {{"pow"},  reinterpret_cast<Func>((Func2)pow),2,0},  
+  {{"mod"}, reinterpret_cast<Func>((Func2)fmod),2,0},
+  {{"hypot"}, reinterpret_cast<Func>((Func2)hypot), 2, 0},
   {{"pi"}, (Func)pi,0,0},
   {{"rnd"}, (Func)Ran, 0, 1}, /*returns a random number from 0 to 1 */
   {{"gauss"}, (Func)Gauss, 1, 1},
@@ -175,6 +176,7 @@ formu_item ftable[TABLESIZE]=
   {{"sign"}, (Func)Sign, 1, 0},
   {{"step"}, (Func)Step, 3, 0},
   {{"stair"}, (Func)Stair, 4, 0},
+  {{"trigger"}, (Func)Trigger, 3, 0},
   {{"besselj"}, (Func)Besselj, 2, 0},
   {{"besseli"}, (Func)Besseli, 2, 0},
   {{"bessely"}, (Func)Bessely, 2, 0},
@@ -2316,6 +2318,16 @@ double Stair(double cur, double len, double old, double stepsize)
  	return old+1.0;
  }
  return old;
+}
+
+double Trigger(double cur, double len, double stepsize)
+{
+ double d=fmod(cur,len);
+ if (((d-stepsize)<0.0)&&((d+stepsize)>0.0))
+ {
+ 	return 1.0;
+ }
+ return 0.0;
 }
 
 double Pulse(double cur, double low, double high)

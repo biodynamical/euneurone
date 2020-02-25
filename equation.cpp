@@ -31,6 +31,7 @@
 #include "equation.h"
 
 using namespace NS_Equation;
+using namespace NS_Formu;
 using namespace std;
 
 #undef isspace

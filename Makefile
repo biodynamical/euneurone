@@ -12,6 +12,7 @@
 CPUOPTS = -march=nocona -mmmx -msse3 -mfpmath=sse -m64
 ## For 32 bit applications and present Matlab library:
 ## MATOPTS =  -DMAT_FILE -DMATLIB
+QTDIR=/usr/lib/qt3
 SOCOPTS= -DUSE_SOCKETS
 ## Otherwise use internal functions:
 MATOPTS =  -DMAT_FILE
@@ -20,8 +21,6 @@ HDFOPTS = -DHDF_FILE
 HDF5OPTS = -DHDF5_FILE
 ## Data spinner implementation, otherwise use mutex
 #SPINOPTS = -DSPINNER
-# CC       = icc
-# CXX      = icc
 CC       = gcc
 CXX      = g++
 LEX      = flex
@@ -37,17 +36,16 @@ QWT42LIB = -L/usr/lib/qt3/lib64/ -lqwt
 HDFPATH=-I/usr/local/hdf4/include/
 HDFLIBPATH=-L/usr/local/hdf4/lib/ -ldf -lmfhdf -ljpeg
 HDF5LIBPATH=-lhdf5
-CFLAGS   = -pipe -Wall -O2 $(CPUOPTS) -DGLX_GLXEXT_LEGACY  -fexceptions -D_REENTRANT   -DQT_DEBUG -DQT_THREAD_SUPPORT -DDO3D -DUSE_GSL $(MATOPTS) $(CDFOPTS) $(HDFOPTS) $(HDF5OPTS) $(SPINOPTS) $(QWT5OPT) $(SOCOPTS)
-CXXFLAGS = -pipe -Wall -O2 $(CPUOPTS) -DGLX_GLXEXT_LEGACY -fexceptions -D_REENTRANT   -DQT_DEBUG -DQT_THREAD_SUPPORT -DDO3D -DUSE_GSL $(MATOPTS) $(CDFOPTS) $(HDFOPTS) $(HDF5OPTS) $(SPINOPTS) $(QWT5OPT) $(SOCOPTS)
+CFLAGS   = -pipe -Wall -O2 $(CPUOPTS) -DGLX_GLXEXT_LEGACY -fno-use-cxa-atexit -fexceptions -D_REENTRANT   -DQT_DEBUG -DQT_THREAD_SUPPORT -DDO3D -DUSE_GSL $(MATOPTS) $(CDFOPTS) $(HDFOPTS) $(HDF5OPTS) $(SPINOPTS) $(QWT5OPT) $(SOCOPTS)
+CXXFLAGS = -pipe -Wall -O2 $(CPUOPTS) -DGLX_GLXEXT_LEGACY -fno-use-cxa-atexit -fexceptions -D_REENTRANT   -DQT_DEBUG -DQT_THREAD_SUPPORT -DDO3D -DUSE_GSL $(MATOPTS) $(CDFOPTS) $(HDFOPTS) $(HDF5OPTS) $(SPINOPTS) $(QWT5OPT) $(SOCOPTS)
 ##CFLAGS   = -pipe -Wall -ggdb -pg $(CPUOPTS) -DGLX_GLXEXT_LEGACY -fno-use-cxa-atexit -fexceptions -D_REENTRANT   -DQT_DEBUG -DQT_THREAD_SUPPORT -D_DEBUG -DDO3D -DUSE_GSL $(MATOPTS) $(CDFOPTS) $(HDFOPTS) $(HDF5OPTS) $(SPINOPTS) $(QWT5OPT) $(SOCOPTS)
 ##CXXFLAGS = -pipe -Wall -ggdb -pg $(CPUOPTS) -DGLX_GLXEXT_LEGACY -fno-use-cxa-atexit -fexceptions -D_REENTRANT   -DQT_DEBUG -DQT_THREAD_SUPPORT -D_DEBUG -DDO3D -DUSE_GSL $(MATOPTS) $(CDFOPTS) $(HDFOPTS) $(HDF5OPTS) $(SPINOPTS) $(QWT5OPT) $(SOCOPTS)
 LEXFLAGS = 
 YACCFLAGS= -d
 INCPATH  = $(CDFPATH) $(HDFPATH)  -I$(QTDIR)/mkspecs/default -I. -I/usr/local/include/ -I$(QTDIR)/include -I/usr/lib/qt3/include/qwt/ -I.moc/ $(MATPATH) 
 LINK     = g++
-# LINK     = icc
 LFLAGS   = -pg 
-LIBS     = $(CDFLIBPATH)  $(HDFLIBPATH) $(HDF5LIBPATH) $(SUBLIBS) -L$(QTDIR)/lib -L/usr/X11R6/lib $ -L/usr/local/lib $(MATLIBPATH) $(QWT42LIB) $(QWT5LIB) -lstdc++ -lqt-mt -lXext -lX11 -lm -lGL -lGLU -lpthread -lgsl -lgslcblas
+LIBS     = $(CDFLIBPATH)  $(HDFLIBPATH) $(HDF5LIBPATH) $(SUBLIBS) -L$(QTLIB)/lib/ -L/usr/X11R6/lib -L/usr/local/lib $(MATLIBPATH) $(QWT42LIB) $(QWT5LIB) -lstdc++ -lqt-mt -lXext -lX11 -lm -lGL -lGLU -lpthread -lgsl -lgslcblas
 AR       = ar cqs
 RANLIB   = 
 MOC      = $(QTDIR)/bin/moc

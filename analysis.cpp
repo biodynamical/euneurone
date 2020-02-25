@@ -95,7 +95,7 @@ struct bartlett : public unary_function<double, double>
 struct blackman : public unary_function<double, double>
 {
   unsigned int i,n;
-  static const double alpha=-0.16;
+  static constexpr double alpha=-0.16;
   
   blackman(unsigned int len) : i(0), n(len) { }
   void reset(unsigned int len) { n=len; i=0;}
@@ -118,7 +118,7 @@ struct blackman : public unary_function<double, double>
 struct hamming : public unary_function<double, double>
 {
   unsigned int i,n;
-  static const double alpha=0.46, beta=0.54;
+  static constexpr double alpha=0.46, beta=0.54;
   
   hamming(unsigned int len) : i(0), n(len) { }
   void reset(unsigned int len) { n=len; i=0;}
@@ -141,7 +141,7 @@ struct hamming : public unary_function<double, double>
 struct hann : public unary_function<double, double>
 {
   unsigned int i,n;
-  static const double alpha=0.5;
+  static constexpr double alpha=0.5;
   
   hann(unsigned int len) : i(0), n(len) { }
   void reset(unsigned int len) { n=len; i=0;}
@@ -1236,7 +1236,7 @@ void Analysis::dspread(double y, NS_Formu::DblVector &yy, double x, int m)
 
  if (m>10)
 // 	throw runtime_error(QString("reported by %1 %2 in\n%3\nat line %4 :\n%5").arg("Analysis").arg(gsl_version).arg(__PRETTY_FUNCTION__).arg(__LINE__-2).arg( gsl_strerror(status)).ascii());
- 	throw runtime_error(QString().sprintf("[Analysis::dspread]: factorial table too small. m=%d, MACC=%d\n",m,MACC));
+ 	throw runtime_error(QString().sprintf("[Analysis::dspread]: factorial table too small. m=%d, MACC=%d\n",m,MACC).ascii());
  n=yy.size();
  ix=(int)x;
  if (x==(double)ix)
@@ -1505,7 +1505,7 @@ void Analysis::powerSpectrum(NS_Formu::DblVector &data, unsigned int m, specWinT
 //first step: ensure data is power of two
 nn=data.size();
  if (!isIntPow(nn))
-	throw runtime_error(QString().sprintf("[Analysis::powerSpectrum]: called with data size not power of 2 (%u)",nn));
+	throw runtime_error(QString().sprintf("[Analysis::powerSpectrum]: called with data size not power of 2 (%u)",nn).ascii());
 //second step: calculate the number of segments k of size m
 // m is window size, k is number of windows
  k=nn/m;

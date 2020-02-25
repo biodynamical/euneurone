@@ -535,7 +535,7 @@ void PoinIsiForm::writeCSV(QString qsFile,bool bAppend, bool bVars, bool bRows,Q
   else
  	file.open(IO_WriteOnly);
   if (file.status()!=IO_Ok)
- 	throw std::runtime_error(QString().sprintf("Error opening file."));
+ 	throw std::runtime_error("Error opening file.");
 
   QTextStream stream(&file);
   if (!bAppend)

@@ -24,7 +24,7 @@ QPrinter *pPrinter;
 QSettings *pSettings;
 QString qsApplication("EuNeurone");
 QString qsProgramUrl("EuNeurone.co.uk");
-QString qsProgramVersion("2.3.2");
+QString qsProgramVersion("2.3.");
 QFont fontGlobal( "Helvetica", 10 );
 
 //define a generalized exception handler

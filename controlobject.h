@@ -265,6 +265,7 @@ struct TStreamProperties
   int nId;
   int nNum;
   int nSize;
+  float fStep;
   bool isEqual(std::string &s) { return sName==s;}
   TStreamProperties(QStringList &sl);
 };
@@ -285,7 +286,7 @@ class TDataStream : public QThread
   unsigned int nSize;
   unsigned int qSize;
   std::string sName;
-  NS_Equation::dataQueue queue;
+  NS_Equation::dataDeque deck;
   TSocketState state;
   struct sockaddr_in stClientAddr;
   char buff[81];
@@ -301,9 +302,9 @@ public:
   void stopThread();
   void setStep(double d);
   std::string &Accept(int socketFD);
-  void setupStream(std::string &s, int id, int n, int size);
+  void setupStream(std::string &s, int id, int n, float step, int size);
   bool isReady() { return bReady;}
-  bool getDataPoints(double time,NS_Equation::dataQueue &dq);
+  bool getDataPoints(double time,NS_Equation::dataDeque &dq);
   virtual void run();
 };
 //---------------------------------------------------------------------------
@@ -330,7 +331,7 @@ public:
   bool setupSocket();
   void setStep(double d);
   int getNumClients();
-  bool getStreamData(int client,double time,NS_Equation::dataQueue &dq);
+  bool getStreamData(int client,double time,NS_Equation::dataDeque &dq);
   void stopThreads();
   void resetStreams();
   void freeSocket();
@@ -355,7 +356,7 @@ private:
   NS_Control::EqHighlighter *pEqHigh;
   NS_Stats::Statistics *pStats;
   NS_Analysis::Analysis *pAna;
-  NS_Equation::dataQueue sockDataQueue;
+  NS_Equation::dataDeque sockDataDeque;
   TListView *pListView;
   QListViewItem *pListItem;
   QLineEdit *pLineEdit;

@@ -31,6 +31,7 @@ struct structOptionT
 
 typedef std::queue<double>  doubleQueue;
 
+//Socket data object
 typedef struct
 {
   int nId;
@@ -38,7 +39,17 @@ typedef struct
   double d;
   double tstamp;
 }  TSockDataPoint;
-typedef std::queue<TSockDataPoint>  dataQueue;
+typedef std::deque<TSockDataPoint>  dataDeque;
+typedef dataDeque::iterator iterDataDeque;
+
+//Functor for time comparison
+ struct smallerTime : public std::binary_function<TSockDataPoint&, double, bool>
+ {
+   bool operator()(TSockDataPoint &p, double t)
+	{ //return true if time is smaller than tstamp
+	  return p.tstamp <= t;
+	}
+ };
 
 typedef std::vector<structOptionT> OptionsVector;
 typedef std::vector<bool> BoolVector;

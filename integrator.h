@@ -128,9 +128,9 @@ public:
 	const char *GetErrorStr();
 	bool IsOk() { return !bError;}
 	bool IsStlError() { return bStlError;}
-        double  Gett() { return t; }
-        unsigned int  GetSteps() { return uStep; }
-        int  GetLag() { return nLag; }
+        const double  Gett() { return t; }
+        const unsigned int  GetSteps() { return uStep; }
+        const int  GetLag() { return nLag; }
 #ifdef SPINNER
         void registerObjects(NS_Equation::Equation *equationObject, NS_DataSpinner::TDataSpinner *spinObject);
 #else
